@@ -17,6 +17,7 @@
 #
 
 DEVICE_FOLDER := device/motorola/edison
+COMMON_FOLDER := device/motorola/omap4-common
 
 # Device overlay
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay
@@ -45,7 +46,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/init.target.rc:root/init.target.rc \
     $(DEVICE_FOLDER)/kexec/devtree:system/etc/kexec/devtree \
     $(OUT)/ramdisk.img:system/etc/kexec/ramdisk.img \
-    $(OUT)/kernel:system/etc/kexec/kernel
+    $(OUT)/kernel:system/etc/kexec/kernel \
+    $(COMMON_FOLDER)/prebuilt/bin/bbx:/root/sbin/bbx \
+    $(DEVICE_FOLDER)/prebuilt/bin/fixboot.sh:/root/sbin/fixboot.sh
 
 # Prebuilts
 PRODUCT_COPY_FILES += \
